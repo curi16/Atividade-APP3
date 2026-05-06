@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+import { View, TouchableOpacity, StyleSheet } from "react-native";
+
+export default function Ex03Grid() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const cells = Array.from({ length: 9 });
+
+  return (
+    <View style={styles.gridContainer}>
+      {cells.map((_, index) => (
+        <TouchableOpacity
+          key={index}
+          style={[styles.cell, activeIndex === index && styles.cellActive]}
+          onPress={() => setActiveIndex(index)}
+        />
+      ))}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  gridContainer: { flexDirection: "row", flexWrap: "wrap", width: "100%" },
+  cell: {
+    width: "33.33%",
+    height: 100,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    backgroundColor: "#fff",
+  },
+  cellActive: { backgroundColor: "#6200ee" },
+});
