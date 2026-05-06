@@ -1,0 +1,47 @@
+import React from "react";
+import {
+  View,
+  Text,
+  Platform,
+  StatusBar,
+  StyleSheet,
+  SafeAreaView,
+} from "react-native";
+
+export default function Ex05Platform() {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <StatusBar
+        barStyle={Platform.OS === "ios" ? "dark-content" : "light-content"}
+      />
+      <View style={styles.header}>
+        <Text style={styles.title}>Adaptável</Text>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  header: Platform.select({
+    ios: {
+      backgroundColor: "#ffffff",
+      height: 60,
+      justifyContent: "center",
+      alignItems: "center",
+      borderBottomWidth: 1,
+      borderBottomColor: "#ddd",
+    },
+    android: {
+      backgroundColor: "#6200ee",
+      height: 56,
+      justifyContent: "center",
+      alignItems: "flex-start",
+      paddingLeft: 16,
+    },
+  }),
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: Platform.OS === "ios" ? "#000" : "#fff",
+  },
+});
