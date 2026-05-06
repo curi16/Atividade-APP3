@@ -1,0 +1,31 @@
+import React from "react";
+import { View, Text, useWindowDimensions, StyleSheet } from "react-native";
+
+export default function Ex06Responsive() {
+  const { width, height } = useWindowDimensions();
+  const isLandscape = width > height;
+  const numColumns = isLandscape ? 2 : 1;
+  const cardWidth = (width - 40) / numColumns; 
+
+  return (
+    <View style={[styles.container, isLandscape && styles.row]}>
+      <View style={[styles.card, { width: cardWidth }]}>
+        <Text>CAIXA 1</Text>
+      </View>
+      <View style={[styles.card, { width: cardWidth }]}>
+        <Text>CAIXA 2</Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, padding: 20, gap: 10 },
+  row: { flexDirection: "row", flexWrap: "wrap" },
+  card: {
+    height: 100,
+    backgroundColor: "#e0e0e0",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
