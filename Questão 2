@@ -1,0 +1,42 @@
+import React from "react";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+
+export default function Ex02Layout() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>TITULO</Text>
+      </View>
+
+      <View style={styles.content}>
+        <Text>ESCREVA PALAVRAS AQUI</Text>
+      </View>
+
+      <TouchableOpacity style={styles.footerButton}>
+        <Text style={styles.buttonText}>BOTÃO</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: "#f4f4f4" },
+  header: {
+    height: 60,
+    backgroundColor: "#6200ee",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerText: { color: "#fff", fontWeight: "bold" },
+  content: { flex: 1, padding: 20 },
+  footerButton: {
+    position: "absolute",
+    bottom: 20,
+    left: 20,
+    right: 20,
+    backgroundColor: "#03dac6",
+    padding: 15,
+    alignItems: "center",
+    borderRadius: 8,
+  },
+});
